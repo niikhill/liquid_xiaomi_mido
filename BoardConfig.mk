@@ -19,6 +19,8 @@ DEVICE_PATH := device/xiaomi/mido
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 TARGET_USES_LEGACY_LIBLIGHT := true
+ALLOW_MISSING_DEPENDENCIES :=true
+
 
 # Architecture
 TARGET_ARCH := arm64
@@ -125,7 +127,7 @@ TARGET_HW_DISK_ENCRYPTION := true
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
     ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT := false
       WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
     endif
   endif
